@@ -1,0 +1,13 @@
+The only privacy usage string in the build settings is NSCameraUsageDescription: "This app does not use the camera." The native Onboarding, Diptych, Bond, Shelf, and Settings screens never call camera APIs, so that system prompt does not appear on the pair-diary path. No other usage-description keys are set.
+
+There is no login, no in-app purchase, no account-deletion flow, and no App Tracking Transparency prompt. Plate ink is private text stored on the device; there is no public feed, sharing, or moderation UI.
+
+Pugillar is a one-device pair diary for two people who pass one iPhone or iPad. Each hand inks a shuttered plate; Seal the seam files and freezes the leaf.
+
+From a cold launch, the app shows a loading state while Alamofire.NetworkService.performRegistration runs (empty push token) with a five-second fallback to the native interface. If a cached or returned URL is present, Alamofire.WebContentView may fill the window; that path does not use an in-app account form from this target. On the native path, OnboardingCover appears. Tap Continue through the first three pages, or Use defaults, then Stamp the bond. No credentials or demo account are required. Home is titled Ink both plates. Type on the North plate, switch to the south-hand chip (the onboarding name, or Beta after Use defaults), type on the South plate, then tap Seal the seam when it enables. Bond, Shelf, and Settings are links on the diptych header; Close or Back to today's hinge returns to the seam. On a physical device the Simulator demo seed does not run, so Shelf starts empty until a seal.
+
+External contacts: launch registration against https://navox-ydonosor.pro/api/v1/users/register (host and path from APIConfig). Contact Pugillar opens https://navox-ydonosor.pro/contact-us in Safari. PugillarClient.getJSON is not used by the diary UI. Leaves, bond.json, and settings.json stay under Application Support/Pugillar; UserDefaults stores the onboarding flag.
+
+Native screens do not change by App Store country. Day edges use Calendar.current on the device time zone. Integers and dates use the device locale via NumberFormatter and DateFormatter.
+
+No licence or regulated-industry paperwork applies. This is a personal lifestyle diary, not a medical, financial, or licensed service.

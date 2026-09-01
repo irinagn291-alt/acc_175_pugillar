@@ -1,0 +1,12 @@
+Pugillar is a pair diary for two people who share one device. Home is a diptych of two shuttered plates. Neither hand reads the other until both have written.
+
+• Onboarding: One book. Two hands.; Write unseen. Seal the seam.; A one-sided night stays home.; then Name the hands (North hand, South hand) and Bond day. Stamp the bond finishes. Use defaults sets Alpha and Beta.
+• Ink both plates on today's hinge. The other plate stays shuttered until both hold ink.
+• Seal the seam files the leaf, freezes it, and starts a blank leaf. The button stays disabled until both plates have ink.
+• A one-sided night stays home. Midnight does not file an unfinished leaf.
+• Bond shows Bond days, sealed leaves, and Marks 7 · 30 · 90 · 365.
+• Shelf shows Sealed seams, the local stack of filed diptychs. No public feed.
+• Settings: Contact Pugillar, Re-run onboarding, Reset all data.
+• Leaves and the bond stay on this device as local files. No account, purchases, or cloud sync.
+
+Close on Bond, Shelf, or Settings returns to today's hinge.

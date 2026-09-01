@@ -1,0 +1,774 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		00FFF59F0BD9F61E80C0DD2F /* APIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE069CD8CA34FCA33C203929 /* APIConfig.swift */; };
+		09395ADC7FAFF59A881DB4A5 /* LeafDayKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECD4742F0C17162D5F12AED /* LeafDayKey.swift */; };
+		1191456BC1B54D119F1B244F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A3C157B79E3360342B731B /* ContentView.swift */; };
+		145761BCEFE42936097BBE92 /* PugillaresHinge.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA234779EF75DF14654FFC8A /* PugillaresHinge.swift */; };
+		1FEAB5B74CF0E06CCCF33DDC /* BondRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9383935FB6C4FCA1477B2A3 /* BondRecord.swift */; };
+		2410E255667982A4C543DE49 /* PugillarClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100A092602D0CE0FA6752475 /* PugillarClientTests.swift */; };
+		2A35C0D5E0F91700FD476D7A /* HandSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B6B588B482CFDEDE22D86D /* HandSide.swift */; };
+		2CB35D15CDAD1D995F39FC98 /* LeafStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1B1F59262AB926751B492A /* LeafStore.swift */; };
+		31A377479853CD118C143C6F /* LeafDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = F131CDE36F23E050F464E925 /* LeafDocument.swift */; };
+		34ED98241380928AE22F9624 /* ShelfView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0DFC253641967E77CD3F15 /* ShelfView.swift */; };
+		36D298C91EE77F5002932202 /* PlateFace.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F5634047EA9450BEEBD6C7 /* PlateFace.swift */; };
+		371468A0684DBA9DE0468F0A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 02422CD38E92337144286217 /* Alamofire */; };
+		429354527914E1B8C8DD559C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43B5F3F7A8087DCCF67226F8 /* Assets.xcassets */; };
+		43EDC68ACAA011C639AF2208 /* SeamSealTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932511573EF5BAA53D1A3F3C /* SeamSealTests.swift */; };
+		4A09D7C3F0D3A9819D19322F /* ScreenCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB71C5643B459A6818B989E /* ScreenCatalog.swift */; };
+		62DA776076E5F7BD53A8FD9F /* OnboardingCover.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38EB2CDA335C6F023A1B251 /* OnboardingCover.swift */; };
+		698E1B5299005972BEF51E8D /* BondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333A08669AAA5F3BB7AB3211 /* BondView.swift */; };
+		6CDA875F97D84E8EF69B2882 /* DiptychView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A60D485A818D829AC30337 /* DiptychView.swift */; };
+		6E66D997F4F6E53DF5A4080E /* Prompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC91DF6A0D82D324BB2AFF2 /* Prompt.swift */; };
+		7733F31061A46EBD7F026014 /* ScreenShotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B073A8E54C66C1C282FC1808 /* ScreenShotTests.swift */; };
+		829A2A91B5247000021DBB6D /* Plate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70B974239650E5F076EBC19 /* Plate.swift */; };
+		9BD4DE843E263943BF3CD399 /* SeamSeal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9AF7B4336D9BB27ABA0414 /* SeamSeal.swift */; };
+		A23379FDCF44BC590D997476 /* BondTallyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E826580E95663319A3D701 /* BondTallyTests.swift */; };
+		B62A9909ECCE420C2B810B55 /* SeamCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FD1C99FFFC4F80876DF2E9 /* SeamCard.swift */; };
+		CADF746CF457DD54C1E1D975 /* LeafStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9291568C48EE4FAE06AB41E /* LeafStoreTests.swift */; };
+		CB57FF699F472B8853E2A9E5 /* PairEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43049DDAA26A52A53F8C9B97 /* PairEntry.swift */; };
+		CB6478F461B60D5996BCF994 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2392D986B4DFFEBDB021984 /* AppDelegate.swift */; };
+		CCEFE6F3931CF6414D3CD6E7 /* BlindSeamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF5B7F9B9640FF93D92C9E8 /* BlindSeamTests.swift */; };
+		D8DE4CDF19F0C051A09222F4 /* WaxFace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C32AB0FEED6F7F916163B79 /* WaxFace.swift */; };
+		E182CEBBF1B22155B8BCDAEE /* PugillarClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A2B9E6642F06A4077B510D /* PugillarClient.swift */; };
+		E1AF81E0A57CE5273D7B73C5 /* BlindSeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAD8E43D16AFB5AA1E622E5 /* BlindSeamView.swift */; };
+		E40395877E2F518D8E03535D /* ShelfStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3509FD0FBCB1A700A4B1D8FE /* ShelfStack.swift */; };
+		E4173AF7FA293A95B7555812 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BFEFB252EC553C868B88D3 /* SettingsView.swift */; };
+		E65F347805D4E919A0A4F39B /* BondTally.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCCBCD58F0063C38C5E2023 /* BondTally.swift */; };
+		ED750E99BEDD57B695113874 /* PugillarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C4222BFFE6FBB174F6A6F1 /* PugillarApp.swift */; };
+		ED9D7FC262CA187F0A94F183 /* LeafSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F55F80330930174176869B /* LeafSession.swift */; };
+		EE331AF47AEAB5A2782D7DB0 /* PugillarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C8A07011C8F93008B0571F /* PugillarTests.swift */; };
+		F85B43FED63D960E24C38D28 /* Leaf.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A02F72BC91AC2493AB8D59 /* Leaf.swift */; };
+		FD423837B2FC830BEF68025D /* LeafSeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC0D2FA5F34EBBD44B363A9 /* LeafSeed.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4F73478F0C065F658EE10E07 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 45A5E19B4AAB167967344475 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0106527E68BD66DFF98665E8;
+			remoteInfo = Pugillar;
+		};
+		6F79E71830BD14397D964DA2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 45A5E19B4AAB167967344475 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0106527E68BD66DFF98665E8;
+			remoteInfo = Pugillar;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0A0DFC253641967E77CD3F15 /* ShelfView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelfView.swift; sourceTree = "<group>"; };
+		0BB71C5643B459A6818B989E /* ScreenCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenCatalog.swift; sourceTree = "<group>"; };
+		0FC0D2FA5F34EBBD44B363A9 /* LeafSeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeafSeed.swift; sourceTree = "<group>"; };
+		100A092602D0CE0FA6752475 /* PugillarClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PugillarClientTests.swift; sourceTree = "<group>"; };
+		1DF477638F6FE178FC008AE8 /* PugillarTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = PugillarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1EAD8E43D16AFB5AA1E622E5 /* BlindSeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlindSeamView.swift; sourceTree = "<group>"; };
+		333A08669AAA5F3BB7AB3211 /* BondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BondView.swift; sourceTree = "<group>"; };
+		3509FD0FBCB1A700A4B1D8FE /* ShelfStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelfStack.swift; sourceTree = "<group>"; };
+		37A3C157B79E3360342B731B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		43049DDAA26A52A53F8C9B97 /* PairEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairEntry.swift; sourceTree = "<group>"; };
+		43B5F3F7A8087DCCF67226F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		49FD1C99FFFC4F80876DF2E9 /* SeamCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeamCard.swift; sourceTree = "<group>"; };
+		4C32AB0FEED6F7F916163B79 /* WaxFace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaxFace.swift; sourceTree = "<group>"; };
+		5C1B1F59262AB926751B492A /* LeafStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeafStore.swift; sourceTree = "<group>"; };
+		64BFEFB252EC553C868B88D3 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		83A2B9E6642F06A4077B510D /* PugillarClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PugillarClient.swift; sourceTree = "<group>"; };
+		86C4222BFFE6FBB174F6A6F1 /* PugillarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PugillarApp.swift; sourceTree = "<group>"; };
+		932511573EF5BAA53D1A3F3C /* SeamSealTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeamSealTests.swift; sourceTree = "<group>"; };
+		93E826580E95663319A3D701 /* BondTallyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BondTallyTests.swift; sourceTree = "<group>"; };
+		9ECD4742F0C17162D5F12AED /* LeafDayKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeafDayKey.swift; sourceTree = "<group>"; };
+		A1C8A07011C8F93008B0571F /* PugillarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PugillarTests.swift; sourceTree = "<group>"; };
+		A56F86BF3CD4DD221168EDC9 /* PugillarShotTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = PugillarShotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9291568C48EE4FAE06AB41E /* LeafStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeafStoreTests.swift; sourceTree = "<group>"; };
+		B073A8E54C66C1C282FC1808 /* ScreenShotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenShotTests.swift; sourceTree = "<group>"; };
+		B38EB2CDA335C6F023A1B251 /* OnboardingCover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCover.swift; sourceTree = "<group>"; };
+		BD9AF7B4336D9BB27ABA0414 /* SeamSeal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeamSeal.swift; sourceTree = "<group>"; };
+		BFCCBCD58F0063C38C5E2023 /* BondTally.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BondTally.swift; sourceTree = "<group>"; };
+		C1F5634047EA9450BEEBD6C7 /* PlateFace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlateFace.swift; sourceTree = "<group>"; };
+		C2392D986B4DFFEBDB021984 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C70B974239650E5F076EBC19 /* Plate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plate.swift; sourceTree = "<group>"; };
+		CFC91DF6A0D82D324BB2AFF2 /* Prompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prompt.swift; sourceTree = "<group>"; };
+		D7B6B588B482CFDEDE22D86D /* HandSide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandSide.swift; sourceTree = "<group>"; };
+		D9383935FB6C4FCA1477B2A3 /* BondRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BondRecord.swift; sourceTree = "<group>"; };
+		DFF5B7F9B9640FF93D92C9E8 /* BlindSeamTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlindSeamTests.swift; sourceTree = "<group>"; };
+		E4F55F80330930174176869B /* LeafSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeafSession.swift; sourceTree = "<group>"; };
+		E7A02F72BC91AC2493AB8D59 /* Leaf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leaf.swift; sourceTree = "<group>"; };
+		EA234779EF75DF14654FFC8A /* PugillaresHinge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PugillaresHinge.swift; sourceTree = "<group>"; };
+		ED60863ACF09F441557D3398 /* Pugillar.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Pugillar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F131CDE36F23E050F464E925 /* LeafDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeafDocument.swift; sourceTree = "<group>"; };
+		F8A60D485A818D829AC30337 /* DiptychView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiptychView.swift; sourceTree = "<group>"; };
+		FE069CD8CA34FCA33C203929 /* APIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConfig.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		58EBAF1764B1905EC3A1507F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				371468A0684DBA9DE0468F0A /* Alamofire in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		081B7B443A8A475EFB2E9BEE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ED60863ACF09F441557D3398 /* Pugillar.app */,
+				A56F86BF3CD4DD221168EDC9 /* PugillarShotTests.xctest */,
+				1DF477638F6FE178FC008AE8 /* PugillarTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0B1087DF30E1F5AF015C6799 /* Plate */ = {
+			isa = PBXGroup;
+			children = (
+				D7B6B588B482CFDEDE22D86D /* HandSide.swift */,
+				C70B974239650E5F076EBC19 /* Plate.swift */,
+				C1F5634047EA9450BEEBD6C7 /* PlateFace.swift */,
+				EA234779EF75DF14654FFC8A /* PugillaresHinge.swift */,
+			);
+			path = Plate;
+			sourceTree = "<group>";
+		};
+		506945118E954840443F8AB6 /* Shelf */ = {
+			isa = PBXGroup;
+			children = (
+				83A2B9E6642F06A4077B510D /* PugillarClient.swift */,
+				3509FD0FBCB1A700A4B1D8FE /* ShelfStack.swift */,
+				0A0DFC253641967E77CD3F15 /* ShelfView.swift */,
+			);
+			path = Shelf;
+			sourceTree = "<group>";
+		};
+		5F2D1F8943E54C16CE337A17 /* Leaf */ = {
+			isa = PBXGroup;
+			children = (
+				E7A02F72BC91AC2493AB8D59 /* Leaf.swift */,
+				9ECD4742F0C17162D5F12AED /* LeafDayKey.swift */,
+				F131CDE36F23E050F464E925 /* LeafDocument.swift */,
+				0FC0D2FA5F34EBBD44B363A9 /* LeafSeed.swift */,
+				E4F55F80330930174176869B /* LeafSession.swift */,
+				5C1B1F59262AB926751B492A /* LeafStore.swift */,
+				B38EB2CDA335C6F023A1B251 /* OnboardingCover.swift */,
+				43049DDAA26A52A53F8C9B97 /* PairEntry.swift */,
+				CFC91DF6A0D82D324BB2AFF2 /* Prompt.swift */,
+				64BFEFB252EC553C868B88D3 /* SettingsView.swift */,
+			);
+			path = Leaf;
+			sourceTree = "<group>";
+		};
+		62F6BDCC50388334786B3471 /* PugillarTests */ = {
+			isa = PBXGroup;
+			children = (
+				DFF5B7F9B9640FF93D92C9E8 /* BlindSeamTests.swift */,
+				93E826580E95663319A3D701 /* BondTallyTests.swift */,
+				A9291568C48EE4FAE06AB41E /* LeafStoreTests.swift */,
+				100A092602D0CE0FA6752475 /* PugillarClientTests.swift */,
+				A1C8A07011C8F93008B0571F /* PugillarTests.swift */,
+				932511573EF5BAA53D1A3F3C /* SeamSealTests.swift */,
+			);
+			path = PugillarTests;
+			sourceTree = "<group>";
+		};
+		8844BD90C8A8457E5BE9F339 /* Bond */ = {
+			isa = PBXGroup;
+			children = (
+				D9383935FB6C4FCA1477B2A3 /* BondRecord.swift */,
+				BFCCBCD58F0063C38C5E2023 /* BondTally.swift */,
+				333A08669AAA5F3BB7AB3211 /* BondView.swift */,
+			);
+			path = Bond;
+			sourceTree = "<group>";
+		};
+		DF22D696A0DD4258B5F1FCD4 = {
+			isa = PBXGroup;
+			children = (
+				F3BFDE1E1CBAC8A911D4C3AB /* Pugillar */,
+				E6691AD9D378762CF86D4FC6 /* PugillarShotTests */,
+				62F6BDCC50388334786B3471 /* PugillarTests */,
+				081B7B443A8A475EFB2E9BEE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E6691AD9D378762CF86D4FC6 /* PugillarShotTests */ = {
+			isa = PBXGroup;
+			children = (
+				0BB71C5643B459A6818B989E /* ScreenCatalog.swift */,
+				B073A8E54C66C1C282FC1808 /* ScreenShotTests.swift */,
+			);
+			path = PugillarShotTests;
+			sourceTree = "<group>";
+		};
+		F3BFDE1E1CBAC8A911D4C3AB /* Pugillar */ = {
+			isa = PBXGroup;
+			children = (
+				FE069CD8CA34FCA33C203929 /* APIConfig.swift */,
+				C2392D986B4DFFEBDB021984 /* AppDelegate.swift */,
+				43B5F3F7A8087DCCF67226F8 /* Assets.xcassets */,
+				37A3C157B79E3360342B731B /* ContentView.swift */,
+				86C4222BFFE6FBB174F6A6F1 /* PugillarApp.swift */,
+				8844BD90C8A8457E5BE9F339 /* Bond */,
+				5F2D1F8943E54C16CE337A17 /* Leaf */,
+				0B1087DF30E1F5AF015C6799 /* Plate */,
+				FD5D2073ECBBF032AFF43A12 /* Seam */,
+				506945118E954840443F8AB6 /* Shelf */,
+			);
+			path = Pugillar;
+			sourceTree = "<group>";
+		};
+		FD5D2073ECBBF032AFF43A12 /* Seam */ = {
+			isa = PBXGroup;
+			children = (
+				1EAD8E43D16AFB5AA1E622E5 /* BlindSeamView.swift */,
+				F8A60D485A818D829AC30337 /* DiptychView.swift */,
+				49FD1C99FFFC4F80876DF2E9 /* SeamCard.swift */,
+				BD9AF7B4336D9BB27ABA0414 /* SeamSeal.swift */,
+				4C32AB0FEED6F7F916163B79 /* WaxFace.swift */,
+			);
+			path = Seam;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0106527E68BD66DFF98665E8 /* Pugillar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F82ABAA2FA2FEB3052C9D93A /* Build configuration list for PBXNativeTarget "Pugillar" */;
+			buildPhases = (
+				8238A817ED8B506A8AFE43EE /* Sources */,
+				E7E40C2893399EB80F5C7433 /* Resources */,
+				58EBAF1764B1905EC3A1507F /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Pugillar;
+			packageProductDependencies = (
+				02422CD38E92337144286217 /* Alamofire */,
+			);
+			productName = Pugillar;
+			productReference = ED60863ACF09F441557D3398 /* Pugillar.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0C03BA1F793CFB6382383E7A /* PugillarTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E02E00590BEBE02198C518CD /* Build configuration list for PBXNativeTarget "PugillarTests" */;
+			buildPhases = (
+				8158329D1A5E0BCB3CB42757 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1A28D03E7CFB6722E1F22F49 /* PBXTargetDependency */,
+			);
+			name = PugillarTests;
+			packageProductDependencies = (
+			);
+			productName = PugillarTests;
+			productReference = 1DF477638F6FE178FC008AE8 /* PugillarTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		39CBBF08B2B67D6BBE037A62 /* PugillarShotTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 41BD0C1B02D3BA51ED716209 /* Build configuration list for PBXNativeTarget "PugillarShotTests" */;
+			buildPhases = (
+				C108A0F4BA8E51933BFC962C /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				074A19FC9CBD4067EC8D3B23 /* PBXTargetDependency */,
+			);
+			name = PugillarShotTests;
+			packageProductDependencies = (
+			);
+			productName = PugillarShotTests;
+			productReference = A56F86BF3CD4DD221168EDC9 /* PugillarShotTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		45A5E19B4AAB167967344475 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					0106527E68BD66DFF98665E8 = {
+						ProvisioningStyle = Automatic;
+					};
+					0C03BA1F793CFB6382383E7A = {
+						ProvisioningStyle = Automatic;
+					};
+					39CBBF08B2B67D6BBE037A62 = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 3B52E1223A03313A5D653898 /* Build configuration list for PBXProject "Pugillar" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = DF22D696A0DD4258B5F1FCD4;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				E0547881DFEEF5D635D25B9A /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 081B7B443A8A475EFB2E9BEE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0106527E68BD66DFF98665E8 /* Pugillar */,
+				0C03BA1F793CFB6382383E7A /* PugillarTests */,
+				39CBBF08B2B67D6BBE037A62 /* PugillarShotTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E7E40C2893399EB80F5C7433 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				429354527914E1B8C8DD559C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8158329D1A5E0BCB3CB42757 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCEFE6F3931CF6414D3CD6E7 /* BlindSeamTests.swift in Sources */,
+				A23379FDCF44BC590D997476 /* BondTallyTests.swift in Sources */,
+				CADF746CF457DD54C1E1D975 /* LeafStoreTests.swift in Sources */,
+				2410E255667982A4C543DE49 /* PugillarClientTests.swift in Sources */,
+				EE331AF47AEAB5A2782D7DB0 /* PugillarTests.swift in Sources */,
+				43EDC68ACAA011C639AF2208 /* SeamSealTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8238A817ED8B506A8AFE43EE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00FFF59F0BD9F61E80C0DD2F /* APIConfig.swift in Sources */,
+				CB6478F461B60D5996BCF994 /* AppDelegate.swift in Sources */,
+				E1AF81E0A57CE5273D7B73C5 /* BlindSeamView.swift in Sources */,
+				1FEAB5B74CF0E06CCCF33DDC /* BondRecord.swift in Sources */,
+				E65F347805D4E919A0A4F39B /* BondTally.swift in Sources */,
+				698E1B5299005972BEF51E8D /* BondView.swift in Sources */,
+				1191456BC1B54D119F1B244F /* ContentView.swift in Sources */,
+				6CDA875F97D84E8EF69B2882 /* DiptychView.swift in Sources */,
+				2A35C0D5E0F91700FD476D7A /* HandSide.swift in Sources */,
+				F85B43FED63D960E24C38D28 /* Leaf.swift in Sources */,
+				09395ADC7FAFF59A881DB4A5 /* LeafDayKey.swift in Sources */,
+				31A377479853CD118C143C6F /* LeafDocument.swift in Sources */,
+				FD423837B2FC830BEF68025D /* LeafSeed.swift in Sources */,
+				ED9D7FC262CA187F0A94F183 /* LeafSession.swift in Sources */,
+				2CB35D15CDAD1D995F39FC98 /* LeafStore.swift in Sources */,
+				62DA776076E5F7BD53A8FD9F /* OnboardingCover.swift in Sources */,
+				CB57FF699F472B8853E2A9E5 /* PairEntry.swift in Sources */,
+				829A2A91B5247000021DBB6D /* Plate.swift in Sources */,
+				36D298C91EE77F5002932202 /* PlateFace.swift in Sources */,
+				6E66D997F4F6E53DF5A4080E /* Prompt.swift in Sources */,
+				ED750E99BEDD57B695113874 /* PugillarApp.swift in Sources */,
+				E182CEBBF1B22155B8BCDAEE /* PugillarClient.swift in Sources */,
+				145761BCEFE42936097BBE92 /* PugillaresHinge.swift in Sources */,
+				B62A9909ECCE420C2B810B55 /* SeamCard.swift in Sources */,
+				9BD4DE843E263943BF3CD399 /* SeamSeal.swift in Sources */,
+				E4173AF7FA293A95B7555812 /* SettingsView.swift in Sources */,
+				E40395877E2F518D8E03535D /* ShelfStack.swift in Sources */,
+				34ED98241380928AE22F9624 /* ShelfView.swift in Sources */,
+				D8DE4CDF19F0C051A09222F4 /* WaxFace.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C108A0F4BA8E51933BFC962C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A09D7C3F0D3A9819D19322F /* ScreenCatalog.swift in Sources */,
+				7733F31061A46EBD7F026014 /* ScreenShotTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		074A19FC9CBD4067EC8D3B23 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0106527E68BD66DFF98665E8 /* Pugillar */;
+			targetProxy = 6F79E71830BD14397D964DA2 /* PBXContainerItemProxy */;
+		};
+		1A28D03E7CFB6722E1F22F49 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0106527E68BD66DFF98665E8 /* Pugillar */;
+			targetProxy = 4F73478F0C065F658EE10E07 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		009863285D6DB8162D288355 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.navox.ydonosor.tests.shots;
+				SDKROOT = iphoneos;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pugillar.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Pugillar";
+			};
+			name = Debug;
+		};
+		1E27379E8CD394C251A02D9C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOLS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Pugillar;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app does not use the camera.";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_UIColorName = background;
+				INFOPLIST_KEY_UILaunchScreen_UIImageName = pgl_Splash;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.navox.ydonosor;
+				PRODUCT_NAME = Pugillar;
+				SDKROOT = iphoneos;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3153F48804C3E5AD1C6E6749 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOLS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.2;
+			};
+			name = Debug;
+		};
+		32CB22391E43D5BCFA10C0F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.navox.ydonosor.tests.shots;
+				SDKROOT = iphoneos;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pugillar.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Pugillar";
+			};
+			name = Release;
+		};
+		894E020E9FDA949F3B2A5C4B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.navox.ydonosor.tests;
+				SDKROOT = iphoneos;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pugillar.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Pugillar";
+			};
+			name = Debug;
+		};
+		9BE4EB4AA2BF9D550BA8DE23 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOLS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Pugillar;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app does not use the camera.";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_UIColorName = background;
+				INFOPLIST_KEY_UILaunchScreen_UIImageName = pgl_Splash;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.navox.ydonosor;
+				PRODUCT_NAME = Pugillar;
+				SDKROOT = iphoneos;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A2000AE6A340894BE19BA57D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOLS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.2;
+			};
+			name = Release;
+		};
+		CA1139E517B307897182800C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.navox.ydonosor.tests;
+				SDKROOT = iphoneos;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pugillar.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Pugillar";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3B52E1223A03313A5D653898 /* Build configuration list for PBXProject "Pugillar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3153F48804C3E5AD1C6E6749 /* Debug */,
+				A2000AE6A340894BE19BA57D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		41BD0C1B02D3BA51ED716209 /* Build configuration list for PBXNativeTarget "PugillarShotTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				009863285D6DB8162D288355 /* Debug */,
+				32CB22391E43D5BCFA10C0F7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		E02E00590BEBE02198C518CD /* Build configuration list for PBXNativeTarget "PugillarTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				894E020E9FDA949F3B2A5C4B /* Debug */,
+				CA1139E517B307897182800C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		F82ABAA2FA2FEB3052C9D93A /* Build configuration list for PBXNativeTarget "Pugillar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1E27379E8CD394C251A02D9C /* Debug */,
+				9BE4EB4AA2BF9D550BA8DE23 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E0547881DFEEF5D635D25B9A /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/wrandecima-bit/Alamofire";
+			requirement = {
+				kind = revision;
+				revision = 7fdd403089757be2ce6991b287c7bef612c8bd04;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		02422CD38E92337144286217 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E0547881DFEEF5D635D25B9A /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 45A5E19B4AAB167967344475 /* Project object */;
+}
