@@ -1,12 +1,14 @@
-Pugillar is a pair diary for two people who share one device. Home is a diptych of two shuttered plates. Neither hand reads the other until both have written.
+Pugillar is a shared daily journal for two people who use one iPhone or iPad. You write your note. They write theirs. Neither of you can read the other side until both notes are in and you save the day.
 
-• Onboarding: One book. Two hands.; Write unseen. Seal the seam.; A one-sided night stays home.; then Name the hands (North hand, South hand) and Bond day. Stamp the bond finishes. Use defaults sets Alpha and Beta.
-• Ink both plates on today's hinge. The other plate stays shuttered until both hold ink.
-• Seal the seam files the leaf, freezes it, and starts a blank leaf. The button stays disabled until both plates have ink.
-• A one-sided night stays home. Midnight does not file an unfinished leaf.
-• Bond shows Bond days, sealed leaves, and Marks 7 · 30 · 90 · 365.
-• Shelf shows Sealed seams, the local stack of filed diptychs. No public feed.
-• Settings: Contact Pugillar, Re-run onboarding, Reset all data.
-• Leaves and the bond stay on this device as local files. No account, purchases, or cloud sync.
+• Today's page with a rotating question — tap Next for another prompt
+• Two named writers on one device. Pass the phone. The other note stays hidden until you save
+• Save today's page when both people have written. Midnight will not auto-save a half-written day
+• This week’s strip on home — which days you already saved
+• Word count and write streak on today's page
+• Together: days since you started, streak, this month, marks at 7 · 30 · 90 · 365
+• Past days: month calendar, search, favorites, open a day, share that day
+• Daily reminder in Settings so you do not skip a page
+• Edit both names, export the whole book, reset all data
+• Everything stays on this device. No account, no purchases, no cloud
 
-Close on Bond, Shelf, or Settings returns to today's hinge.
+Use defaults names the two people Alex and Sam and starts today.

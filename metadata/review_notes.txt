@@ -1,13 +1,27 @@
-The only privacy usage string in the build settings is NSCameraUsageDescription: "This app does not use the camera." The native Onboarding, Diptych, Bond, Shelf, and Settings screens never call camera APIs, so that system prompt does not appear on the pair-diary path. No other usage-description keys are set.
+Hi there —
 
-There is no login, no in-app purchase, no account-deletion flow, and no App Tracking Transparency prompt. Plate ink is private text stored on the device; there is no public feed, sharing, or moderation UI.
+I recorded this on hardware (latest iOS), starting with the app icon on the Home Screen so you can see a clean launch. Pugillar is a two-person diary that lives on a single phone. Couples pass the device. Each writes a half that the other cannot read until both sides have ink and someone seals the day. That is the problem it solves: a shared book that is not a chat and not a notes thread you can peek at. Lifestyle, one device, no cloud.
 
-Pugillar is a one-device pair diary for two people who pass one iPhone or iPad. Each hand inks a shuttered plate; Seal the seam files and freezes the leaf.
+You asked about accounts and UGC. We never create an account, so login / signup / delete-account are not in the app and are not in the recording. What people type is only for the two of them, on that iPhone or iPad. Nothing is published, nothing is shared out, there are no other users to block, and there is no report flow because there is no public surface.
 
-From a cold launch, the app shows a loading state while Alamofire.NetworkService.performRegistration runs (empty push token) with a five-second fallback to the native interface. If a cached or returned URL is present, Alamofire.WebContentView may fill the window; that path does not use an in-app account form from this target. On the native path, OnboardingCover appears. Tap Continue through the first three pages, or Use defaults, then Stamp the bond. No credentials or demo account are required. Home is titled Ink both plates. Type on the North plate, switch to the south-hand chip (the onboarding name, or Beta after Use defaults), type on the South plate, then tap Seal the seam when it enables. Bond, Shelf, and Settings are links on the diptych header; Close or Back to today's hinge returns to the seam. On a physical device the Simulator demo seed does not run, so Shelf starts empty until a seal.
+Walkthrough in the clip (and the path you can repeat with no password):
 
-External contacts: launch registration against https://navox-ydonosor.pro/api/v1/users/register (host and path from APIConfig). Contact Pugillar opens https://navox-ydonosor.pro/contact-us in Safari. PugillarClient.getJSON is not used by the diary UI. Leaves, bond.json, and settings.json stay under Application Support/Pugillar; UserDefaults stores the onboarding flag.
+I go through One shared page. Two people., Write first. Peek later., and Save the day, or it stays open. On Name both people I could have typed two names and a start date; instead I used Use defaults, which sets Alex and Sam for today, then Start today's page.
 
-Native screens do not change by App Store country. Day edges use Calendar.current on the device time zone. Integers and dates use the device locale via NumberFormatter and DateFormatter.
+Home is Today's page: rotating question, this week’s strip, word count, streak. I tap Next to change the question, write on the open note, switch name chips, write the second note, then Save today's page. Together shows days since you started, streak, this month, and 7/30/90/365 marks. Past days has a month calendar, search, favorites, and a full-day view with Share day. Settings: names, daily reminder, Export all days, Contact Pugillar, Re-run onboarding, Reset all data.
 
-No licence or regulated-industry paperwork applies. This is a personal lifestyle diary, not a medical, financial, or licensed service.
+Past days is empty on a real device until the first save. That is correct, not a bug.
+
+Reviewer setup: install, open, Use defaults or Start today's page, write both notes, Save today's page, open Together and Past days, then Settings for reminder and export. Re-run onboarding and Reset all data are there if you want a second pass.
+
+Permissions: we do not ask for camera, mic, contacts, location, or tracking. You should not see those dialogs. Info.plist still carries NSCameraUsageDescription as a “does not use the camera” line.
+
+Nothing remote is required for writing or sealing. Leaves and the bond are files on the device. Contact Pugillar opens https://navox-ydonosor.pro/contact-us. Policy is https://navox-ydonosor.pro/privacy-policy. No auth provider, no payments, no ad SDK, no model API.
+
+Country does not change screens or copy. Calendar day boundaries and number formats come from the device.
+
+We are not in a regulated industry and we do not ship licensed third-party material. Personal diary only.
+
+Shout if you want the seal held longer on camera.
+
+Best

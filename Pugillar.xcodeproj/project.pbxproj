@@ -11,6 +11,7 @@
 		09395ADC7FAFF59A881DB4A5 /* LeafDayKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECD4742F0C17162D5F12AED /* LeafDayKey.swift */; };
 		1191456BC1B54D119F1B244F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A3C157B79E3360342B731B /* ContentView.swift */; };
 		145761BCEFE42936097BBE92 /* PugillaresHinge.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA234779EF75DF14654FFC8A /* PugillaresHinge.swift */; };
+		1546C71F0567A84F831167B2 /* PageShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B811AC4B3117607E6FD2C45 /* PageShare.swift */; };
 		1FEAB5B74CF0E06CCCF33DDC /* BondRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9383935FB6C4FCA1477B2A3 /* BondRecord.swift */; };
 		2410E255667982A4C543DE49 /* PugillarClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100A092602D0CE0FA6752475 /* PugillarClientTests.swift */; };
 		2A35C0D5E0F91700FD476D7A /* HandSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B6B588B482CFDEDE22D86D /* HandSide.swift */; };
@@ -22,19 +23,23 @@
 		429354527914E1B8C8DD559C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43B5F3F7A8087DCCF67226F8 /* Assets.xcassets */; };
 		43EDC68ACAA011C639AF2208 /* SeamSealTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932511573EF5BAA53D1A3F3C /* SeamSealTests.swift */; };
 		4A09D7C3F0D3A9819D19322F /* ScreenCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB71C5643B459A6818B989E /* ScreenCatalog.swift */; };
+		5AA46597323E41B55EDE072B /* PageBell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BCCDEF8526F42A8106ED5B /* PageBell.swift */; };
 		62DA776076E5F7BD53A8FD9F /* OnboardingCover.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38EB2CDA335C6F023A1B251 /* OnboardingCover.swift */; };
+		6920CDEE92F38D855B480147 /* PageMathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E83C591F8DEA8D561157230 /* PageMathTests.swift */; };
 		698E1B5299005972BEF51E8D /* BondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333A08669AAA5F3BB7AB3211 /* BondView.swift */; };
 		6CDA875F97D84E8EF69B2882 /* DiptychView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A60D485A818D829AC30337 /* DiptychView.swift */; };
 		6E66D997F4F6E53DF5A4080E /* Prompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC91DF6A0D82D324BB2AFF2 /* Prompt.swift */; };
 		7733F31061A46EBD7F026014 /* ScreenShotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B073A8E54C66C1C282FC1808 /* ScreenShotTests.swift */; };
 		829A2A91B5247000021DBB6D /* Plate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70B974239650E5F076EBC19 /* Plate.swift */; };
 		9BD4DE843E263943BF3CD399 /* SeamSeal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9AF7B4336D9BB27ABA0414 /* SeamSeal.swift */; };
+		A1189A409EEB599789B1F269 /* PageMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7154DEF72253335FD41D8C0 /* PageMath.swift */; };
 		A23379FDCF44BC590D997476 /* BondTallyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E826580E95663319A3D701 /* BondTallyTests.swift */; };
 		B62A9909ECCE420C2B810B55 /* SeamCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FD1C99FFFC4F80876DF2E9 /* SeamCard.swift */; };
 		CADF746CF457DD54C1E1D975 /* LeafStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9291568C48EE4FAE06AB41E /* LeafStoreTests.swift */; };
 		CB57FF699F472B8853E2A9E5 /* PairEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43049DDAA26A52A53F8C9B97 /* PairEntry.swift */; };
 		CB6478F461B60D5996BCF994 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2392D986B4DFFEBDB021984 /* AppDelegate.swift */; };
 		CCEFE6F3931CF6414D3CD6E7 /* BlindSeamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF5B7F9B9640FF93D92C9E8 /* BlindSeamTests.swift */; };
+		D746716B9EBAE19F8B6FABB4 /* DayAsk.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE242027AC02DD63899F5DB /* DayAsk.swift */; };
 		D8DE4CDF19F0C051A09222F4 /* WaxFace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C32AB0FEED6F7F916163B79 /* WaxFace.swift */; };
 		E182CEBBF1B22155B8BCDAEE /* PugillarClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A2B9E6642F06A4077B510D /* PugillarClient.swift */; };
 		E1AF81E0A57CE5273D7B73C5 /* BlindSeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAD8E43D16AFB5AA1E622E5 /* BlindSeamView.swift */; };
@@ -44,6 +49,7 @@
 		ED750E99BEDD57B695113874 /* PugillarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C4222BFFE6FBB174F6A6F1 /* PugillarApp.swift */; };
 		ED9D7FC262CA187F0A94F183 /* LeafSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F55F80330930174176869B /* LeafSession.swift */; };
 		EE331AF47AEAB5A2782D7DB0 /* PugillarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C8A07011C8F93008B0571F /* PugillarTests.swift */; };
+		F38D84E3EBA77587042340D4 /* DayReadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E5278ADF59CBAB111751F9 /* DayReadView.swift */; };
 		F85B43FED63D960E24C38D28 /* Leaf.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A02F72BC91AC2493AB8D59 /* Leaf.swift */; };
 		FD423837B2FC830BEF68025D /* LeafSeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC0D2FA5F34EBBD44B363A9 /* LeafSeed.swift */; };
 /* End PBXBuildFile section */
@@ -75,10 +81,12 @@
 		333A08669AAA5F3BB7AB3211 /* BondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BondView.swift; sourceTree = "<group>"; };
 		3509FD0FBCB1A700A4B1D8FE /* ShelfStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelfStack.swift; sourceTree = "<group>"; };
 		37A3C157B79E3360342B731B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		3E83C591F8DEA8D561157230 /* PageMathTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageMathTests.swift; sourceTree = "<group>"; };
 		43049DDAA26A52A53F8C9B97 /* PairEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairEntry.swift; sourceTree = "<group>"; };
 		43B5F3F7A8087DCCF67226F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		49FD1C99FFFC4F80876DF2E9 /* SeamCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeamCard.swift; sourceTree = "<group>"; };
 		4C32AB0FEED6F7F916163B79 /* WaxFace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaxFace.swift; sourceTree = "<group>"; };
+		5B811AC4B3117607E6FD2C45 /* PageShare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageShare.swift; sourceTree = "<group>"; };
 		5C1B1F59262AB926751B492A /* LeafStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeafStore.swift; sourceTree = "<group>"; };
 		64BFEFB252EC553C868B88D3 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		83A2B9E6642F06A4077B510D /* PugillarClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PugillarClient.swift; sourceTree = "<group>"; };
@@ -91,14 +99,18 @@
 		A9291568C48EE4FAE06AB41E /* LeafStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeafStoreTests.swift; sourceTree = "<group>"; };
 		B073A8E54C66C1C282FC1808 /* ScreenShotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenShotTests.swift; sourceTree = "<group>"; };
 		B38EB2CDA335C6F023A1B251 /* OnboardingCover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCover.swift; sourceTree = "<group>"; };
+		B4BCCDEF8526F42A8106ED5B /* PageBell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageBell.swift; sourceTree = "<group>"; };
 		BD9AF7B4336D9BB27ABA0414 /* SeamSeal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeamSeal.swift; sourceTree = "<group>"; };
 		BFCCBCD58F0063C38C5E2023 /* BondTally.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BondTally.swift; sourceTree = "<group>"; };
 		C1F5634047EA9450BEEBD6C7 /* PlateFace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlateFace.swift; sourceTree = "<group>"; };
 		C2392D986B4DFFEBDB021984 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C70B974239650E5F076EBC19 /* Plate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plate.swift; sourceTree = "<group>"; };
+		C7154DEF72253335FD41D8C0 /* PageMath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageMath.swift; sourceTree = "<group>"; };
 		CFC91DF6A0D82D324BB2AFF2 /* Prompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prompt.swift; sourceTree = "<group>"; };
+		D5E5278ADF59CBAB111751F9 /* DayReadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayReadView.swift; sourceTree = "<group>"; };
 		D7B6B588B482CFDEDE22D86D /* HandSide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandSide.swift; sourceTree = "<group>"; };
 		D9383935FB6C4FCA1477B2A3 /* BondRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BondRecord.swift; sourceTree = "<group>"; };
+		DFE242027AC02DD63899F5DB /* DayAsk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayAsk.swift; sourceTree = "<group>"; };
 		DFF5B7F9B9640FF93D92C9E8 /* BlindSeamTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlindSeamTests.swift; sourceTree = "<group>"; };
 		E4F55F80330930174176869B /* LeafSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeafSession.swift; sourceTree = "<group>"; };
 		E7A02F72BC91AC2493AB8D59 /* Leaf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leaf.swift; sourceTree = "<group>"; };
@@ -145,6 +157,7 @@
 		506945118E954840443F8AB6 /* Shelf */ = {
 			isa = PBXGroup;
 			children = (
+				D5E5278ADF59CBAB111751F9 /* DayReadView.swift */,
 				83A2B9E6642F06A4077B510D /* PugillarClient.swift */,
 				3509FD0FBCB1A700A4B1D8FE /* ShelfStack.swift */,
 				0A0DFC253641967E77CD3F15 /* ShelfView.swift */,
@@ -155,6 +168,7 @@
 		5F2D1F8943E54C16CE337A17 /* Leaf */ = {
 			isa = PBXGroup;
 			children = (
+				DFE242027AC02DD63899F5DB /* DayAsk.swift */,
 				E7A02F72BC91AC2493AB8D59 /* Leaf.swift */,
 				9ECD4742F0C17162D5F12AED /* LeafDayKey.swift */,
 				F131CDE36F23E050F464E925 /* LeafDocument.swift */,
@@ -162,6 +176,9 @@
 				E4F55F80330930174176869B /* LeafSession.swift */,
 				5C1B1F59262AB926751B492A /* LeafStore.swift */,
 				B38EB2CDA335C6F023A1B251 /* OnboardingCover.swift */,
+				B4BCCDEF8526F42A8106ED5B /* PageBell.swift */,
+				C7154DEF72253335FD41D8C0 /* PageMath.swift */,
+				5B811AC4B3117607E6FD2C45 /* PageShare.swift */,
 				43049DDAA26A52A53F8C9B97 /* PairEntry.swift */,
 				CFC91DF6A0D82D324BB2AFF2 /* Prompt.swift */,
 				64BFEFB252EC553C868B88D3 /* SettingsView.swift */,
@@ -175,6 +192,7 @@
 				DFF5B7F9B9640FF93D92C9E8 /* BlindSeamTests.swift */,
 				93E826580E95663319A3D701 /* BondTallyTests.swift */,
 				A9291568C48EE4FAE06AB41E /* LeafStoreTests.swift */,
+				3E83C591F8DEA8D561157230 /* PageMathTests.swift */,
 				100A092602D0CE0FA6752475 /* PugillarClientTests.swift */,
 				A1C8A07011C8F93008B0571F /* PugillarTests.swift */,
 				932511573EF5BAA53D1A3F3C /* SeamSealTests.swift */,
@@ -362,6 +380,7 @@
 				CCEFE6F3931CF6414D3CD6E7 /* BlindSeamTests.swift in Sources */,
 				A23379FDCF44BC590D997476 /* BondTallyTests.swift in Sources */,
 				CADF746CF457DD54C1E1D975 /* LeafStoreTests.swift in Sources */,
+				6920CDEE92F38D855B480147 /* PageMathTests.swift in Sources */,
 				2410E255667982A4C543DE49 /* PugillarClientTests.swift in Sources */,
 				EE331AF47AEAB5A2782D7DB0 /* PugillarTests.swift in Sources */,
 				43EDC68ACAA011C639AF2208 /* SeamSealTests.swift in Sources */,
@@ -379,6 +398,8 @@
 				E65F347805D4E919A0A4F39B /* BondTally.swift in Sources */,
 				698E1B5299005972BEF51E8D /* BondView.swift in Sources */,
 				1191456BC1B54D119F1B244F /* ContentView.swift in Sources */,
+				D746716B9EBAE19F8B6FABB4 /* DayAsk.swift in Sources */,
+				F38D84E3EBA77587042340D4 /* DayReadView.swift in Sources */,
 				6CDA875F97D84E8EF69B2882 /* DiptychView.swift in Sources */,
 				2A35C0D5E0F91700FD476D7A /* HandSide.swift in Sources */,
 				F85B43FED63D960E24C38D28 /* Leaf.swift in Sources */,
@@ -388,6 +409,9 @@
 				ED9D7FC262CA187F0A94F183 /* LeafSession.swift in Sources */,
 				2CB35D15CDAD1D995F39FC98 /* LeafStore.swift in Sources */,
 				62DA776076E5F7BD53A8FD9F /* OnboardingCover.swift in Sources */,
+				5AA46597323E41B55EDE072B /* PageBell.swift in Sources */,
+				A1189A409EEB599789B1F269 /* PageMath.swift in Sources */,
+				1546C71F0567A84F831167B2 /* PageShare.swift in Sources */,
 				CB57FF699F472B8853E2A9E5 /* PairEntry.swift in Sources */,
 				829A2A91B5247000021DBB6D /* Plate.swift in Sources */,
 				36D298C91EE77F5002932202 /* PlateFace.swift in Sources */,
@@ -458,7 +482,7 @@
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Pugillar;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
@@ -602,7 +626,7 @@
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Pugillar;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
