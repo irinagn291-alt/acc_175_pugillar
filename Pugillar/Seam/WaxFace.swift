@@ -114,6 +114,7 @@ enum WaxFace {
     }
 }
 
+@MainActor
 enum WaxFigures {
     static let integers: NumberFormatter = {
         let formatter = NumberFormatter()

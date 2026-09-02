@@ -1,6 +1,7 @@
 import UIKit
 import Alamofire
 
+@MainActor
 final class AppDelegate: NSObject, UIApplicationDelegate {
     private static let bind = "com.navox.ydonosor"
 

@@ -1,6 +1,7 @@
 import SwiftUI
 import UIKit
 
+@MainActor
 enum PageShare {
     static func day(_ card: ShelfCard, alpha: String, beta: String) -> String {
         let when = card.sealedAt.map(WaxFigures.day) ?? card.dayKey.fileName

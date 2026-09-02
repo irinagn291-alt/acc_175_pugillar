@@ -211,7 +211,7 @@ final class PugillaresHingeView: UIView, UITextViewDelegate {
         guard !snapshot.isSealed else { return }
         let target = ownInk
         guard target.isEditable else { return }
-        DispatchQueue.main.async { [weak self] in
+        Task { @MainActor [weak self] in
             guard let self, target.isEditable, self.ownInk === target else { return }
             _ = target.becomeFirstResponder()
         }
