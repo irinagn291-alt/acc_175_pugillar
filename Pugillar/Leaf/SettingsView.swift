@@ -4,6 +4,8 @@ import SwiftUI
 struct SettingsView: View {
     @State var session: LeafSession
     @State private var confirmReset = false
+    @State private var alphaName = ""
+    @State private var betaName = ""
     @Environment(\.openURL) private var openURL
 
     init(session: LeafSession) {
@@ -24,6 +26,10 @@ struct SettingsView: View {
             } else {
                 populated
             }
+        }
+        .onAppear {
+            alphaName = session.bond?.alphaName ?? ""
+            betaName = session.bond?.betaName ?? ""
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .background(WaxFace.Palette.background.ignoresSafeArea())
@@ -88,24 +94,78 @@ struct SettingsView: View {
     }
 
     private var populated: some View {
-        VStack(alignment: .leading, spacing: WaxFace.space(1)) {
-            if let bond = session.bond {
-                section("Hands")
-                info("\(bond.alphaName) · \(bond.betaName)")
-                info("Bonded \(WaxFigures.day(bond.bondedAt))")
-                info("\(WaxFigures.integer(bond.days)) days · \(WaxFigures.integer(bond.sealedLeaves)) sealed")
-            }
-            section("App")
-            action("Contact Pugillar") {
-                openURL(PugillarClient.contactURL)
-            }
-            action("Re-run onboarding") {
-                session.rerunOnboarding()
-            }
-            action("Reset all data") {
-                confirmReset = true
+        ScrollView {
+            VStack(alignment: .leading, spacing: WaxFace.space(1)) {
+                if let bond = session.bond {
+                    section("People")
+                    TextField("First person", text: $alphaName)
+                        .wax(.body)
+                        .foregroundStyle(WaxFace.Palette.ink)
+                        .padding(.horizontal, WaxFace.space(2))
+                        .frame(minHeight: WaxFace.tap)
+                        .background(WaxFace.Palette.surface)
+                    TextField("Second person", text: $betaName)
+                        .wax(.body)
+                        .foregroundStyle(WaxFace.Palette.ink)
+                        .padding(.horizontal, WaxFace.space(2))
+                        .frame(minHeight: WaxFace.tap)
+                        .background(WaxFace.Palette.surface)
+                    action("Save names") {
+                        Task { await session.saveNames(alpha: alphaName, beta: betaName) }
+                    }
+                    info("Started \(WaxFigures.day(bond.bondedAt))")
+                    info("Streak \(WaxFigures.integer(session.writeStreak)) · last 30 days \(WaxFigures.integer(session.recentSaves))")
+                }
+                section("Daily reminder")
+                Toggle(isOn: Binding(
+                    get: { session.reminderOn },
+                    set: { session.setReminder(on: $0, hour: session.reminderHour) }
+                )) {
+                    Text("Remind us to write")
+                        .wax(.body)
+                        .foregroundStyle(WaxFace.Palette.ink)
+                }
+                .padding(.horizontal, WaxFace.space(2))
+                .frame(minHeight: WaxFace.tap)
+                .tint(WaxFace.Palette.accent)
+                if session.reminderOn {
+                    Stepper(value: Binding(
+                        get: { session.reminderHour },
+                        set: { session.setReminder(on: true, hour: $0) }
+                    ), in: 6 ... 23) {
+                        Text("At \(hourLabel(session.reminderHour))")
+                            .wax(.body)
+                            .foregroundStyle(WaxFace.Palette.ink)
+                    }
+                    .padding(.horizontal, WaxFace.space(2))
+                    .frame(minHeight: WaxFace.tap)
+                }
+                section("Your book")
+                action("Export all days") {
+                    session.shareBook()
+                }
+                section("App")
+                action("Contact Pugillar") {
+                    openURL(PugillarClient.contactURL)
+                }
+                action("Re-run onboarding") {
+                    session.rerunOnboarding()
+                }
+                action("Reset all data") {
+                    confirmReset = true
+                }
             }
         }
+    }
+
+    private func hourLabel(_ hour: Int) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "j"
+        if formatter.dateFormat.contains("a") {
+            let h = hour % 12 == 0 ? 12 : hour % 12
+            return hour < 12 ? "\(h) AM" : "\(h) PM"
+        }
+        return "\(hour):00"
     }
 
     private func section(_ title: String) -> some View {

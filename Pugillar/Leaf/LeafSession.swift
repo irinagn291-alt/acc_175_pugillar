@@ -38,6 +38,12 @@ final class LeafSession {
     var sealBusy = false
     var commitFlash = false
     var onboardingComplete = false
+    var askIndex = 0
+    var reminderOn = false
+    var reminderHour = 21
+    var favoriteIDs: Set<UUID> = []
+    var reading: ShelfCard?
+    var shareText: String?
 
     init(store: (any LeafStoring)?, calendar: Calendar = .current, now: @escaping @Sendable () -> Date = { Date() }) {
         self.store = store
@@ -140,6 +146,7 @@ final class LeafSession {
         let loaded = await store.load()
         warning = loaded.warning
         onboardingComplete = await store.isOnboardingComplete()
+        loadPrefs()
         await refresh(from: loaded.leaves, bond: loaded.bond)
         if loaded.warning == .startedEmpty {
             fault = "A leaf file was damaged. The diptych started empty."
@@ -201,7 +208,7 @@ final class LeafSession {
         defer { sealBusy = false }
         guard let store else { return }
         do {
-            let sealed = try await store.sealSeam(at: now())
+            let sealed = try await store.sealSeam(at: now(), question: todayAsk)
             snapshot = BlindSeam.snapshot(leaf: sealed, writing: snapshot.writing, revealing: true)
             UINotificationFeedbackGenerator().notificationOccurred(.success)
             commitFlash = true
@@ -229,8 +236,8 @@ final class LeafSession {
     }
 
     func completeOnboarding(alpha: String, beta: String, bondedAt: Date) async {
-        let alphaName = trimmed(alpha, fallback: "Alpha")
-        let betaName = trimmed(beta, fallback: "Beta")
+                let alphaName = trimmed(alpha, fallback: "Alex")
+        let betaName = trimmed(beta, fallback: "Sam")
         let stamp = calendar.startOfDay(for: bondedAt)
         do {
             try await store?.saveBond(
@@ -275,6 +282,14 @@ final class LeafSession {
             showOnboarding = true
             homeReady = false
             lastDayKey = nil
+            askIndex = 0
+            reminderOn = false
+            reminderHour = 21
+            favoriteIDs = []
+            reading = nil
+            shareText = nil
+            persistPrefs()
+            Task { await PageBell.sync(on: false, hour: reminderHour) }
         } catch {
             fault = "Reset failed. The leaves are still on the shelf."
         }
@@ -361,6 +376,121 @@ final class LeafSession {
         shelf = BlindSeam.shelf(from: sealed)
         onboardingComplete = true
         showOnboarding = false
+        loadPrefs()
+    }
+
+    var todayAsk: String { DayAsk.at(askIndex) }
+
+    var weekMarks: [PageMath.WeekDay] {
+        PageMath.week(now: now(), saved: shelf.map(\.dayKey), calendar: calendar)
+    }
+
+    var monthMarks: [PageMath.WeekDay] {
+        PageMath.monthGrid(now: now(), saved: shelf.map(\.dayKey), calendar: calendar)
+    }
+
+    var writeStreak: Int {
+        PageMath.streak(days: savedDates, now: now(), calendar: calendar)
+    }
+
+    var monthSaves: Int {
+        PageMath.count(inMonthOf: now(), days: savedDates, calendar: calendar)
+    }
+
+    var recentSaves: Int {
+        PageMath.count(lastDays: 30, days: savedDates, now: now(), calendar: calendar)
+    }
+
+    var todayWords: Int {
+        PageMath.words(in: (snapshot.alpha.readableInk ?? "") + " " + (snapshot.beta.readableInk ?? ""))
+    }
+
+    func cycleAsk() {
+        askIndex += 1
+        persistPrefs()
+    }
+
+    func isFavorite(_ id: UUID) -> Bool {
+        favoriteIDs.contains(id)
+    }
+
+    func toggleFavorite(_ id: UUID) {
+        if favoriteIDs.contains(id) {
+            favoriteIDs.remove(id)
+        } else {
+            favoriteIDs.insert(id)
+        }
+        persistPrefs()
+    }
+
+    func openDay(_ card: ShelfCard) {
+        reading = card
+    }
+
+    func closeDay() {
+        reading = nil
+    }
+
+    func shareDay(_ card: ShelfCard) {
+        shareText = PageShare.day(
+            card,
+            alpha: bond?.alphaName ?? "First",
+            beta: bond?.betaName ?? "Second"
+        )
+    }
+
+    func shareBook() {
+        shareText = PageShare.book(
+            shelf,
+            alpha: bond?.alphaName ?? "First",
+            beta: bond?.betaName ?? "Second"
+        )
+    }
+
+    func setReminder(on: Bool, hour: Int) {
+        reminderOn = on
+        reminderHour = min(max(hour, 0), 23)
+        persistPrefs()
+        Task { await PageBell.sync(on: reminderOn, hour: reminderHour) }
+    }
+
+    func saveNames(alpha: String, beta: String) async {
+        let alphaName = trimmed(alpha, fallback: bond?.alphaName ?? "Alex")
+        let betaName = trimmed(beta, fallback: bond?.betaName ?? "Sam")
+        let stamp = bond?.bondedAt ?? calendar.startOfDay(for: now())
+        do {
+            try await store?.saveBond(
+                BondRecord.fresh(handAlphaName: alphaName, handBetaName: betaName, bondedAt: stamp)
+            )
+            if let record = await store?.bond() {
+                bond = BlindSeam.bond(record, sealedLeaves: shelf.count, now: now(), calendar: calendar)
+            }
+            fault = nil
+        } catch {
+            fault = "The names did not save. Try again."
+        }
+    }
+
+    private var savedDates: [Date] {
+        shelf.compactMap { $0.dayKey.date(calendar: calendar) ?? $0.sealedAt }
+    }
+
+    private func loadPrefs() {
+        let defaults = UserDefaults.standard
+        reminderOn = defaults.bool(forKey: PreferenceKey.reminderOn)
+        if defaults.object(forKey: PreferenceKey.reminderHour) != nil {
+            reminderHour = defaults.integer(forKey: PreferenceKey.reminderHour)
+        }
+        askIndex = defaults.integer(forKey: PreferenceKey.askIndex)
+        favoriteIDs = Set((defaults.stringArray(forKey: PreferenceKey.favorites) ?? []).compactMap(UUID.init(uuidString:)))
+    }
+
+    private func persistPrefs() {
+        let defaults = UserDefaults.standard
+        defaults.set(reminderOn, forKey: PreferenceKey.reminderOn)
+        defaults.set(reminderHour, forKey: PreferenceKey.reminderHour)
+        defaults.set(askIndex, forKey: PreferenceKey.askIndex)
+        defaults.set(favoriteIDs.map(\.uuidString), forKey: PreferenceKey.favorites)
     }
 
     private func restoreSeededHome(at date: Date) async {

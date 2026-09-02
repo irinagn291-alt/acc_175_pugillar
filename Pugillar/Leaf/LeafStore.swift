@@ -4,6 +4,10 @@ import Foundation
 enum PreferenceKey {
     static let demoSeed = "pgl.demo.v1"
     static let onboardingComplete = "pgl.onboarding.complete"
+    static let reminderOn = "pgl.reminder.on"
+    static let reminderHour = "pgl.reminder.hour"
+    static let favorites = "pgl.favorites.v1"
+    static let askIndex = "pgl.ask.index"
 }
 
 /// Role: Leaf. Recoverable load outcome. Never crash on a corrupt leaf file.
@@ -26,7 +30,7 @@ protocol LeafStoring: Sendable {
     func load() async -> (leaves: [Leaf], bond: BondRecord?, warning: LeafLoadWarning?)
     func homeLeaf(now: Date) async throws -> Leaf
     func inkPlate(_ text: String, hand: HandSide, now: Date) async throws -> Leaf
-    func sealSeam(at date: Date) async throws -> Leaf
+    func sealSeam(at date: Date, question: String?) async throws -> Leaf
     func shelf() async -> [Leaf]
     func bond() async -> BondRecord?
     func saveBond(_ bond: BondRecord) async throws
@@ -36,6 +40,12 @@ protocol LeafStoring: Sendable {
     func seedDemoIfNeeded(now: Date) async throws
     func isOnboardingComplete() async -> Bool
     func setOnboardingComplete(_ flag: Bool) async throws
+}
+
+extension LeafStoring {
+    func sealSeam(at date: Date) async throws -> Leaf {
+        try await sealSeam(at: date, question: nil)
+    }
 }
 
 /// Role: Leaf. JSON per leaf under Application Support. Memory is the source of truth.
@@ -165,9 +175,16 @@ actor LeafStore: LeafStoring {
         return leaf
     }
 
-    func sealSeam(at date: Date) async throws -> Leaf {
+    func sealSeam(at date: Date, question: String?) async throws -> Leaf {
         guard var leaf = unsealedLeaf else {
             throw LeafStoreError.noHomeLeaf
+        }
+        if let question, !question.isEmpty {
+            leaf.prompt = Prompt(
+                question: question,
+                alphaAnswer: leaf.alphaPlate.ink,
+                betaAnswer: leaf.betaPlate.ink
+            )
         }
         do {
             leaf = try SeamSeal.apply(to: leaf, at: date)
@@ -232,6 +249,10 @@ actor LeafStore: LeafStoring {
         let defaults = preferenceDefaults()
         defaults.removeObject(forKey: PreferenceKey.demoSeed)
         defaults.removeObject(forKey: PreferenceKey.onboardingComplete)
+        defaults.removeObject(forKey: PreferenceKey.reminderOn)
+        defaults.removeObject(forKey: PreferenceKey.reminderHour)
+        defaults.removeObject(forKey: PreferenceKey.favorites)
+        defaults.removeObject(forKey: PreferenceKey.askIndex)
         if fileManager.fileExists(atPath: directory.path) {
             try fileManager.removeItem(at: directory)
         }

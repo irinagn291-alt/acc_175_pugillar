@@ -36,48 +36,48 @@ struct OnboardingCover: View {
     private var pageOne: some View {
         page(
             image: "pgl_Onboarding1",
-            title: "One book. Two hands.",
-            line: "Ink lives on wax plates. Neither hand reads the other until both have written."
+            title: "One shared page. Two people.",
+            line: "A daily note for two people who share one phone. Not a chat."
         )
     }
 
     private var pageTwo: some View {
         page(
             image: "pgl_Onboarding2",
-            title: "Write unseen. Seal the seam.",
-            line: "Your plate takes ink. The other shutter stays down. Seal opens both and freezes the leaf."
+            title: "Write first. Peek later.",
+            line: "You write your note. They write theirs. You cannot read the other side until both are done and you save."
         )
     }
 
     private var pageThree: some View {
         page(
             image: "pgl_Onboarding3",
-            title: "A one-sided night stays home.",
-            line: "Midnight does not file an unfinished leaf. Bond counts sealed days, not words."
+            title: "Save the day, or it stays open.",
+            line: "Midnight will not save a half-written page. Together counts saved days, not word counts."
         )
     }
 
     private var pageFour: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: WaxFace.space(2)) {
-                Text("Name the hands")
+                Text("Name both people")
                     .wax(.title)
                     .foregroundStyle(WaxFace.Palette.ink)
-                TextField("North hand", text: $alphaName)
+                TextField("First person", text: $alphaName)
                     .wax(.body)
                     .foregroundStyle(WaxFace.Palette.ink)
                     .padding(WaxFace.space(1))
                     .frame(minHeight: WaxFace.tap)
                     .background(WaxFace.Palette.surface)
                     .contentShape(Rectangle())
-                TextField("South hand", text: $betaName)
+                TextField("Second person", text: $betaName)
                     .wax(.body)
                     .foregroundStyle(WaxFace.Palette.ink)
                     .padding(WaxFace.space(1))
                     .frame(minHeight: WaxFace.tap)
                     .background(WaxFace.Palette.surface)
                     .contentShape(Rectangle())
-                DatePicker("Bond day", selection: $bondedAt, displayedComponents: .date)
+                DatePicker("Day you started", selection: $bondedAt, displayedComponents: .date)
                     .wax(.body)
                     .foregroundStyle(WaxFace.Palette.ink)
                     .tint(WaxFace.Palette.accent)
@@ -116,7 +116,7 @@ struct OnboardingCover: View {
     private var bottom: some View {
         VStack(spacing: WaxFace.space(1)) {
             Button(action: advance) {
-                Text(page == 3 ? "Stamp the bond" : "Continue")
+                Text(page == 3 ? "Start today's page" : "Continue")
                     .wax(.seal)
                     .foregroundStyle(WaxFace.Palette.background)
                     .frame(maxWidth: .infinity, minHeight: WaxFace.tap)
@@ -148,8 +148,8 @@ struct OnboardingCover: View {
     }
 
     private func skip() {
-        alphaName = "Alpha"
-        betaName = "Beta"
+        alphaName = "Alex"
+        betaName = "Sam"
         bondedAt = Calendar.current.startOfDay(for: Date())
         finish()
     }

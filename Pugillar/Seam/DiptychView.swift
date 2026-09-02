@@ -19,7 +19,9 @@ struct DiptychView: View {
         ZStack {
             WaxFace.Palette.background.ignoresSafeArea()
             diptych
-            if let card = session.overlay {
+            if let card = session.reading {
+                DayReadView(session: session, card: card)
+            } else if let card = session.overlay {
                 overlayStack(card)
             }
         }
@@ -40,36 +42,37 @@ struct DiptychView: View {
             WaxFace.dismissKeyboard()
         }
         .scrollDismissesKeyboard(.interactively)
+        .sheet(isPresented: Binding(
+            get: { session.shareText != nil },
+            set: { if !$0 { session.shareText = nil } }
+        )) {
+            if let text = session.shareText {
+                ShareSheet(items: [text])
+            }
+        }
     }
 
     private var diptych: some View {
         TimelineView(.periodic(from: .now, by: 60)) { timeline in
             VStack(alignment: .leading, spacing: 0) {
                 header
-                if let prompt = session.snapshot.prompt, !session.snapshot.canSeal, !session.snapshot.isSealed {
-                    promptLine(prompt)
+                weekRail
+                if !session.snapshot.isSealed {
+                    todayAsk
                 }
                 GeometryReader { geo in
-                    ZStack {
-                        PugillaresHinge(
-                            snapshot: session.snapshot,
-                            onInk: { hand, text in
-                                session.writeInk(text, hand: hand)
-                            },
-                            onHand: { hand in
-                                session.takeStylus(hand)
-                            }
-                        )
-                        .frame(width: geo.size.width, height: geo.size.height)
-                        HStack(spacing: WaxFace.space(2)) {
-                            waxInk(session.snapshot.alpha)
-                            waxInk(session.snapshot.beta)
+                    PugillaresHinge(
+                        snapshot: session.snapshot,
+                        alphaName: BlindSeam.name(.alpha, bond: session.bond),
+                        betaName: BlindSeam.name(.beta, bond: session.bond),
+                        onInk: { hand, text in
+                            session.writeInk(text, hand: hand)
+                        },
+                        onHand: { hand in
+                            session.takeStylus(hand)
                         }
-                        .padding(.horizontal, WaxFace.space(3))
-                        .padding(.top, WaxFace.space(6))
-                        .padding(.bottom, WaxFace.space(2))
-                        .allowsHitTesting(false)
-                    }
+                    )
+                    .frame(width: geo.size.width, height: geo.size.height)
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .frame(minHeight: 280)
@@ -96,6 +99,10 @@ struct DiptychView: View {
                         .frame(width: WaxFace.space(6), height: WaxFace.space(6))
                         .accessibilityHidden(true)
                 }
+                Text(saveHint)
+                    .wax(.caption)
+                    .foregroundStyle(WaxFace.Palette.muted)
+                    .frame(maxWidth: .infinity, alignment: .leading)
                 sealButton
             }
             .padding(.horizontal, WaxFace.space(2))
@@ -109,7 +116,7 @@ struct DiptychView: View {
             headerDecor
             HStack(alignment: .firstTextBaseline, spacing: WaxFace.space(1)) {
                 VStack(alignment: .leading, spacing: WaxFace.space(1)) {
-                    Text("Ink both plates")
+                    Text("Today's page")
                         .wax(.title)
                         .foregroundStyle(WaxFace.Palette.ink)
                         .fixedSize(horizontal: false, vertical: true)
@@ -132,8 +139,8 @@ struct DiptychView: View {
                 .accessibilityLabel("Bond days \(WaxFigures.integer(session.bond?.days ?? 0))")
             }
             HStack(spacing: WaxFace.space(2)) {
-                overlayLink("Bond") { session.present(.bond) }
-                overlayLink("Shelf") { session.present(.shelf) }
+                overlayLink("Together") { session.present(.bond) }
+                overlayLink("Past days") { session.present(.shelf) }
                 overlayLink("Settings") { session.present(.settings) }
                 Spacer(minLength: 0)
             }
@@ -164,51 +171,90 @@ struct DiptychView: View {
 
     private var nextTapLine: String {
         if session.snapshot.isSealed {
-            return "Filed. Open Shelf for past leaves."
+            return "Saved. Open Past days to read both notes."
         }
         if session.snapshot.canSeal {
-            return "Both halves are ready. Seal the seam."
+            return "Both notes are in. Save this day."
         }
         let north = plateHasInk(session.snapshot.alpha)
         let south = plateHasInk(session.snapshot.beta)
+        let other = BlindSeam.name(north ? .beta : .alpha, bond: session.bond)
         if north, !south {
-            return "Ink the south half."
+            return "Pass the phone. \(other) writes next."
         }
         if south, !north {
-            return "Ink the north half."
+            return "Pass the phone. \(other) writes next."
         }
-        return "Two halves. Write the first line."
+        return "You write first. They write second. Neither can peek."
     }
 
     private func plateHasInk(_ face: PlateFace) -> Bool {
         Plate(hand: .alpha, ink: face.readableInk ?? "").hasInk
     }
 
-    private func waxInk(_ face: PlateFace) -> some View {
-        Group {
-            if face.isShuttered {
-                Color.clear
-            } else if let ink = face.readableInk, Plate(hand: .alpha, ink: ink).hasInk {
-                Text(ink)
+    private var todayAsk: some View {
+        HStack(alignment: .top, spacing: WaxFace.space(2)) {
+            VStack(alignment: .leading, spacing: WaxFace.space(1)) {
+                Text("Today’s question")
+                    .wax(.caption)
+                    .foregroundStyle(WaxFace.Palette.muted)
+                Text(session.todayAsk)
                     .wax(.body)
                     .foregroundStyle(WaxFace.Palette.ink)
                     .fixedSize(horizontal: false, vertical: true)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-                    .padding(WaxFace.space(2))
-            } else {
-                Color.clear
+                Text("\(WaxFigures.integer(session.todayWords)) words · \(WaxFigures.integer(session.writeStreak)) day streak")
+                    .wax(.caption)
+                    .foregroundStyle(WaxFace.Palette.muted)
             }
+            Button {
+                session.cycleAsk()
+            } label: {
+                Text("Next")
+                    .wax(.caption)
+                    .foregroundStyle(WaxFace.Palette.background)
+                    .padding(.horizontal, WaxFace.space(2))
+                    .frame(minHeight: WaxFace.tap)
+                    .background(WaxFace.Palette.accent)
+                    .contentShape(Rectangle())
+            }
+            .buttonStyle(.plain)
+            .accessibilityLabel("Next question")
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(.horizontal, WaxFace.space(2))
+        .padding(.top, WaxFace.space(1))
     }
 
-    private func promptLine(_ prompt: PromptGate) -> some View {
-        Text(prompt.question)
-            .wax(.caption)
-            .foregroundStyle(WaxFace.Palette.ink)
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.horizontal, WaxFace.space(2))
-            .padding(.top, WaxFace.space(1))
+    private var weekRail: some View {
+        HStack(spacing: WaxFace.space(1)) {
+            ForEach(session.weekMarks) { day in
+                VStack(spacing: 4) {
+                    Text(day.short)
+                        .wax(.caption)
+                        .foregroundStyle(day.isToday ? WaxFace.Palette.accent : WaxFace.Palette.muted)
+                    Circle()
+                        .fill(day.saved ? WaxFace.Palette.accent : WaxFace.Palette.surface)
+                        .frame(width: 10, height: 10)
+                        .overlay {
+                            Circle().strokeBorder(WaxFace.Palette.accent, lineWidth: day.isToday ? 2 : 1)
+                        }
+                }
+                .frame(maxWidth: .infinity)
+                .accessibilityLabel(day.saved ? "\(day.short) saved" : "\(day.short) open")
+            }
+        }
+        .padding(.horizontal, WaxFace.space(2))
+        .padding(.top, WaxFace.space(1))
+    }
+
+    private var saveHint: String {
+        if session.snapshot.isSealed {
+            return "Today is locked. Tomorrow opens a new page."
+        }
+        if session.snapshot.canSeal {
+            return "Saving files both notes and puts the day in Past days."
+        }
+        return "The save button waits until both people have written."
     }
 
     private var sealButton: some View {
@@ -221,7 +267,7 @@ struct DiptychView: View {
                     .scaledToFit()
                     .frame(width: WaxFace.space(4), height: WaxFace.space(4))
                     .accessibilityHidden(true)
-                Text("Seal the seam")
+                Text(session.snapshot.isSealed ? "Saved for today" : "Save today's page")
                     .wax(.seal)
                     .foregroundStyle(WaxFace.Palette.background)
             }
@@ -275,7 +321,7 @@ struct DiptychView: View {
         }
         .buttonStyle(.plain)
         .disabled(session.snapshot.isSealed)
-        .accessibilityLabel("\(name) takes the stylus")
+        .accessibilityLabel("\(name) writes now")
         .accessibilityAddTraits(selected ? .isSelected : [])
     }
 

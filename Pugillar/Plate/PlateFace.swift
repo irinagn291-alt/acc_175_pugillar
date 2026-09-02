@@ -93,6 +93,7 @@ struct ShelfCard: Equatable, Sendable, Identifiable {
     var alphaInk: String
     var betaInk: String
     var sealedAt: Date?
+    var question: String?
 }
 
 /// Role: Plate. Encodes a Leaf so views never read a shuttered plate and never mutate a sealed leaf.
@@ -148,7 +149,8 @@ enum BlindSeam {
                 dayKey: leaf.dayKey,
                 alphaInk: leaf.pairEntry?.alphaInk ?? leaf.alphaPlate.ink,
                 betaInk: leaf.pairEntry?.betaInk ?? leaf.betaPlate.ink,
-                sealedAt: leaf.pairEntry.map { PairEntry.date(from: $0.sealedAtUnixMilliseconds) }
+                sealedAt: leaf.pairEntry.map { PairEntry.date(from: $0.sealedAtUnixMilliseconds) },
+                question: leaf.pairEntry?.promptQuestion ?? leaf.prompt?.question
             )
         }
     }

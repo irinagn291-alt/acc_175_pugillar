@@ -14,8 +14,8 @@ enum LeafSeed {
 
     static func bond(on date: Date) -> BondRecord {
         BondRecord.fresh(
-            handAlphaName: "North Hand",
-            handBetaName: "South Hand",
+            handAlphaName: "Alex",
+            handBetaName: "Sam",
             bondedAt: date.addingTimeInterval(-86400 * 14)
         )
     }
@@ -28,27 +28,27 @@ enum LeafSeed {
         let rows: [(String, Int, String, String)] = [
             (
                 "11111111-1111-4111-8111-111111111111",
-                -3,
-                "The wax held our first line. I wrote while the south shutter stayed down.",
-                "Sealed when both halves met. The seam opened and the leaf froze."
+                -1,
+                "Tired, but dinner was good. Glad we sat down for this.",
+                "Same. I liked the walk home more than I said."
             ),
             (
                 "33333333-3333-4333-8333-333333333333",
-                -8,
-                "Rain on the boards. I kept the stylus moving so the recess would not set.",
-                "I answered after you passed the tablet. Neither of us read until Seal."
+                -2,
+                "Work ran long. I still wanted to write you first.",
+                "I saved the last cookie. Come get it tomorrow."
             ),
             (
                 "44444444-4444-4444-8444-444444444444",
-                -15,
-                "Seven days in, the bond count sat on the rail. I wrote the night we almost skipped.",
-                "I filled the south plate late. Midnight did not file us. Seal did."
+                -3,
+                "Rain all afternoon. The apartment felt like ours again.",
+                "Put on the record when you get in. I’ll make tea."
             ),
             (
                 "55555555-5555-4555-8555-555555555555",
-                -21,
-                "The first week mark. I listed what we would not say out loud.",
-                "South wrote the rest. The hinge opened. The shelf took the leaf."
+                -5,
+                "Quiet Sunday. I needed that more than I knew.",
+                "Next Sunday let’s leave the phones in the other room."
             ),
         ]
         return rows.map { raw, offset, alpha, beta in
@@ -71,8 +71,8 @@ enum LeafSeed {
 
     static func homeLeaf(on date: Date, calendar: Calendar) -> Leaf {
         var leaf = Leaf.blank(on: date, calendar: calendar, id: homeLeafID)
-        leaf.alphaPlate.ink = "Morning on this plate. I wrote the north half and passed the tablet."
-        leaf.betaPlate.ink = "Evening on this plate. Both recesses hold ink. Tap Seal the seam."
+        leaf.alphaPlate.ink = "Long day. Glad we still sit down for this."
+        leaf.betaPlate.ink = "Same. I liked the walk home."
         return leaf
     }
 }

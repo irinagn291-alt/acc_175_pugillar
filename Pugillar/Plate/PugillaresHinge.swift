@@ -39,6 +39,7 @@ final class PugillaresHingeView: UIView, UITextViewDelegate {
     private let rightName = UILabel()
     private let shutterVoice = UILabel()
     private var reduceMotion = false
+    private var lastWriting: HandSide?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -91,12 +92,12 @@ final class PugillaresHingeView: UIView, UITextViewDelegate {
         configureInkLabel(rightInkLabel, hand: .beta)
         addSubview(leftInkLabel)
         addSubview(rightInkLabel)
-        configureHint(leftHint, text: "Two halves. Write the first line.")
-        configureHint(rightHint, text: "Write the south half.")
+        configureHint(leftHint, text: "Tap here and write the north half.")
+        configureHint(rightHint, text: "Tap here and write the south half.")
         addSubview(leftHint)
         addSubview(rightHint)
-        configureCover(leftCover, title: "North closed until Seal", hand: .alpha)
-        configureCover(rightCover, title: "South closed until Seal", hand: .beta)
+        configureCover(leftCover, title: "Hidden. Tap if you are North.", hand: .alpha)
+        configureCover(rightCover, title: "Hidden. Tap if you are South.", hand: .beta)
         addSubview(leftCover)
         addSubview(rightCover)
 
@@ -110,9 +111,20 @@ final class PugillaresHingeView: UIView, UITextViewDelegate {
         return nil
     }
 
-    func apply(_ snapshot: DiptychSnapshot, reduceMotion: Bool) {
+    func apply(
+        _ snapshot: DiptychSnapshot,
+        reduceMotion: Bool,
+        alphaName: String = "North",
+        betaName: String = "South"
+    ) {
         self.snapshot = snapshot
         self.reduceMotion = reduceMotion
+        leftName.text = "\(alphaName)’s note"
+        rightName.text = "\(betaName)’s note"
+        leftHint.text = "Tap here and write \(alphaName)’s note."
+        rightHint.text = "Tap here and write \(betaName)’s note."
+        applyCoverTitle(leftCover, text: "Hidden. Tap if you are \(alphaName).")
+        applyCoverTitle(rightCover, text: "Hidden. Tap if you are \(betaName).")
         let left = snapshot.alpha.readableInk ?? ""
         let right = snapshot.beta.readableInk ?? ""
         if leftInk.text != left, !leftInk.isFirstResponder {
@@ -141,6 +153,11 @@ final class PugillaresHingeView: UIView, UITextViewDelegate {
         accessibilityElements = snapshot.isSealed || snapshot.isRevealing
             ? [leftInk, rightInk]
             : visibleChrome
+        let writingChanged = lastWriting != snapshot.writing
+        lastWriting = snapshot.writing
+        if writingChanged {
+            focusWritingPlate()
+        }
     }
 
     override func layoutSubviews() {
@@ -190,6 +207,16 @@ final class PugillaresHingeView: UIView, UITextViewDelegate {
         snapshot.writing == .alpha ? leftInk : rightInk
     }
 
+    private func focusWritingPlate() {
+        guard !snapshot.isSealed else { return }
+        let target = ownInk
+        guard target.isEditable else { return }
+        DispatchQueue.main.async { [weak self] in
+            guard let self, target.isEditable, self.ownInk === target else { return }
+            _ = target.becomeFirstResponder()
+        }
+    }
+
     private var visibleChrome: [UIView] {
         var items: [UIView] = []
         if !leftCover.isHidden { items.append(leftCover) } else { items.append(leftInk) }
@@ -203,7 +230,7 @@ final class PugillaresHingeView: UIView, UITextViewDelegate {
             return "Both plates hold ink. Seal the seam."
         }
         let other = snapshot.writing == .alpha ? "South" : "North"
-        return "\(other) plate closed until Seal"
+        return "\(other) plate is shuttered. Tap it to write that half."
     }
 
     private func showsHint(_ face: PlateFace) -> Bool {
@@ -216,8 +243,8 @@ final class PugillaresHingeView: UIView, UITextViewDelegate {
         rightInkLabel.text = rightInk.text
         leftInkLabel.isHidden = true
         rightInkLabel.isHidden = true
-        leftInk.textColor = leftInk.isFirstResponder ? WaxFace.Palette.inkUI : .clear
-        rightInk.textColor = rightInk.isFirstResponder ? WaxFace.Palette.inkUI : .clear
+        leftInk.textColor = WaxFace.Palette.inkUI
+        rightInk.textColor = WaxFace.Palette.inkUI
     }
 
     private func configureCover(_ button: UIButton, title: String, hand: HandSide) {
@@ -234,11 +261,17 @@ final class PugillaresHingeView: UIView, UITextViewDelegate {
         button.configuration = config
         button.titleLabel?.numberOfLines = 0
         button.titleLabel?.textAlignment = .center
-        button.accessibilityLabel = hand == .alpha ? "North plate closed" : "South plate closed"
-        button.accessibilityHint = "Takes the stylus"
+        button.accessibilityLabel = hand == .alpha ? "North plate shuttered" : "South plate shuttered"
+        button.accessibilityHint = "Opens this plate to write"
         button.addAction(UIAction { [weak self] _ in
             self?.onHand?(hand)
         }, for: .touchUpInside)
+    }
+
+    private func applyCoverTitle(_ button: UIButton, text: String) {
+        var config = button.configuration ?? .plain()
+        config.title = text
+        button.configuration = config
     }
 
     private func configureHint(_ label: UILabel, text: String) {
@@ -273,7 +306,7 @@ final class PugillaresHingeView: UIView, UITextViewDelegate {
     private func configureInk(_ view: UITextView, hand: HandSide) {
         view.delegate = self
         view.backgroundColor = .clear
-        view.textColor = .clear
+        view.textColor = WaxFace.Palette.inkUI
         view.tintColor = WaxFace.Palette.accentUI
         view.font = WaxFace.plateFont()
         view.keyboardAppearance = .dark
@@ -378,6 +411,8 @@ final class PugillaresHingeView: UIView, UITextViewDelegate {
 /// Role: Plate. SwiftUI host for the one pugillares hinge. Not a split view. Not two TextEditors.
 struct PugillaresHinge: UIViewRepresentable {
     var snapshot: DiptychSnapshot
+    var alphaName: String = "North"
+    var betaName: String = "South"
     var onInk: (HandSide, String) -> Void
     var onHand: (HandSide) -> Void = { _ in }
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
@@ -386,13 +421,13 @@ struct PugillaresHinge: UIViewRepresentable {
         let view = PugillaresHingeView()
         view.onInk = onInk
         view.onHand = onHand
-        view.apply(snapshot, reduceMotion: reduceMotion)
+        view.apply(snapshot, reduceMotion: reduceMotion, alphaName: alphaName, betaName: betaName)
         return view
     }
 
     func updateUIView(_ view: PugillaresHingeView, context: Context) {
         view.onInk = onInk
         view.onHand = onHand
-        view.apply(snapshot, reduceMotion: reduceMotion)
+        view.apply(snapshot, reduceMotion: reduceMotion, alphaName: alphaName, betaName: betaName)
     }
 }

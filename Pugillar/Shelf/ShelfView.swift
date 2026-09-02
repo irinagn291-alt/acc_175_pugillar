@@ -3,6 +3,8 @@ import SwiftUI
 /// Role: Shelf. Overlay stack of sealed leaves only. ReviewScreen log. No public feed.
 struct ShelfView: View {
     @State var session: LeafSession
+    @State private var query = ""
+    @State private var favoritesOnly = false
 
     init(session: LeafSession) {
         _session = State(initialValue: session)
@@ -17,7 +19,7 @@ struct ShelfView: View {
             chrome
             if let fault = session.fault, session.shelf.isEmpty, session.warning == .startedEmpty {
                 errorState(fault)
-            } else if session.shelf.isEmpty {
+            } else if visibleCards.isEmpty {
                 emptyState
             } else {
                 populated
@@ -31,7 +33,7 @@ struct ShelfView: View {
     private var chrome: some View {
         VStack(alignment: .leading, spacing: WaxFace.space(1)) {
             HStack(alignment: .firstTextBaseline) {
-                Text("Sealed seams")
+                Text("Past days")
                     .wax(.title)
                     .foregroundStyle(WaxFace.Palette.ink)
                     .fixedSize(horizontal: false, vertical: true)
@@ -42,15 +44,67 @@ struct ShelfView: View {
                 .wax(.body)
                 .foregroundStyle(WaxFace.Palette.ink)
                 .fixedSize(horizontal: false, vertical: true)
+            TextField("Search notes", text: $query)
+                .wax(.body)
+                .foregroundStyle(WaxFace.Palette.ink)
+                .padding(.horizontal, WaxFace.space(1))
+                .frame(minHeight: WaxFace.tap)
+                .background(WaxFace.Palette.surface)
+            Button {
+                favoritesOnly.toggle()
+            } label: {
+                Text(favoritesOnly ? "Showing favorites" : "Show favorites")
+                    .wax(.caption)
+                    .foregroundStyle(WaxFace.Palette.accent)
+                    .frame(minHeight: WaxFace.tap)
+                    .contentShape(Rectangle())
+            }
+            .buttonStyle(.plain)
+            monthGrid
         }
         .padding(.horizontal, WaxFace.space(2))
         .padding(.top, WaxFace.space(2))
         .padding(.bottom, WaxFace.space(2))
     }
 
+    private var visibleCards: [ShelfCard] {
+        session.shelf.filter { card in
+            if favoritesOnly, !session.isFavorite(card.id) { return false }
+            let needle = query.trimmingCharacters(in: .whitespacesAndNewlines)
+            guard !needle.isEmpty else { return true }
+            let hay = [card.alphaInk, card.betaInk, card.question ?? ""].joined(separator: " ")
+            return hay.localizedCaseInsensitiveContains(needle)
+        }
+    }
+
+    private var monthGrid: some View {
+        let marks = session.monthMarks
+        let columns = Array(repeating: GridItem(.flexible(), spacing: 4), count: 7)
+        return LazyVGrid(columns: columns, spacing: 4) {
+            ForEach(marks) { day in
+                Text(day.short)
+                    .wax(.caption)
+                    .foregroundStyle(day.saved ? WaxFace.Palette.background : WaxFace.Palette.ink)
+                    .frame(maxWidth: .infinity, minHeight: 28)
+                    .background(day.saved ? WaxFace.Palette.accent : WaxFace.Palette.surface)
+                    .overlay {
+                        if day.isToday {
+                            Rectangle().strokeBorder(WaxFace.Palette.ink, lineWidth: 1)
+                        }
+                    }
+                    .onTapGesture {
+                        if let card = session.shelf.first(where: { $0.dayKey == day.id }) {
+                            session.openDay(card)
+                        }
+                    }
+            }
+        }
+        .accessibilityLabel("This month’s saved days")
+    }
+
     private var jobLine: String {
         let count = WaxFigures.integer(session.shelf.count)
-        return "\(count) filed diptychs. Close returns to today's hinge."
+        return "\(count) saved days. Each card is both notes from that day."
     }
 
     private var closeButton: some View {
@@ -74,7 +128,7 @@ struct ShelfView: View {
         Button {
             session.dismissOverlay()
         } label: {
-            Text("Back to today's hinge")
+            Text("Back to today's page")
                 .wax(.seal)
                 .foregroundStyle(WaxFace.Palette.background)
                 .frame(maxWidth: .infinity, minHeight: WaxFace.tap)
@@ -94,10 +148,12 @@ struct ShelfView: View {
                 .scaledToFit()
                 .frame(maxWidth: 240, maxHeight: 240)
                 .accessibilityHidden(true)
-            Text("No sealed leaves.")
+            Text(session.shelf.isEmpty ? "No saved days yet." : "No days match.")
                 .wax(.title)
                 .foregroundStyle(WaxFace.Palette.ink)
-            Text("Seal today's seam. Midnight will not file a one-sided night.")
+            Text(session.shelf.isEmpty
+                 ? "Write both notes on today's page, then save. Midnight will not save a half-written day."
+                 : "Clear search or turn off favorites to see the rest.")
                 .wax(.body)
                 .foregroundStyle(WaxFace.Palette.ink)
                 .multilineTextAlignment(.center)
@@ -105,7 +161,7 @@ struct ShelfView: View {
             Button {
                 session.dismissOverlay()
             } label: {
-                Text("Back to the seam")
+                Text("Back to today's page")
                     .wax(.seal)
                     .foregroundStyle(WaxFace.Palette.background)
                     .frame(maxWidth: .infinity, minHeight: WaxFace.tap)
@@ -122,7 +178,7 @@ struct ShelfView: View {
         GeometryReader { geo in
             let wide = geo.size.width >= 700
             let gap = WaxFace.space(2)
-            let count = max(session.shelf.count, 1)
+            let count = max(visibleCards.count, 1)
             let bottomClear = WaxFace.space(4)
             ScrollView {
                 if wide {
@@ -136,9 +192,14 @@ struct ShelfView: View {
                         ],
                         spacing: gap
                     ) {
-                        ForEach(session.shelf) { card in
-                            filedDiptych(card)
-                                .frame(height: leafH)
+                        ForEach(visibleCards) { card in
+                            Button {
+                                session.openDay(card)
+                            } label: {
+                                filedDiptych(card)
+                            }
+                            .buttonStyle(.plain)
+                            .frame(height: leafH)
                         }
                     }
                     .padding(.horizontal, WaxFace.space(2))
@@ -146,9 +207,14 @@ struct ShelfView: View {
                     let fitted = (geo.size.height - bottomClear - gap * CGFloat(count - 1)) / CGFloat(count)
                     let leafH = max(WaxFace.space(14), min(fitted, WaxFace.space(24)))
                     VStack(spacing: gap) {
-                        ForEach(session.shelf) { card in
-                            filedDiptych(card)
-                                .frame(height: leafH)
+                        ForEach(visibleCards) { card in
+                            Button {
+                                session.openDay(card)
+                            } label: {
+                                filedDiptych(card)
+                            }
+                            .buttonStyle(.plain)
+                            .frame(height: leafH)
                         }
                     }
                     .padding(.horizontal, WaxFace.space(2))
@@ -170,7 +236,7 @@ struct ShelfView: View {
                     .lineLimit(1)
                     .truncationMode(.tail)
                 Spacer(minLength: 0)
-                Text("Sealed")
+                Text(session.isFavorite(card.id) ? "Favorite" : "Open")
                     .wax(.caption)
                     .foregroundStyle(WaxFace.Palette.accent)
                     .layoutPriority(1)
